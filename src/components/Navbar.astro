@@ -43,11 +43,12 @@
     <button
       id="menu-btn"
       class="md:hidden flex flex-col gap-[5px] p-2"
-      aria-label="Open menu"
+      aria-label="Toggle menu"
+      aria-expanded="false"
     >
-      <span class="w-5 h-0.5 bg-ink block transition-all rounded-full"></span>
-      <span class="w-5 h-0.5 bg-ink block transition-all rounded-full"></span>
-      <span class="w-3 h-0.5 bg-ink block transition-all rounded-full"></span>
+      <span id="bar1" class="w-5 h-0.5 bg-ink block transition-all duration-300 rounded-full"></span>
+      <span id="bar2" class="w-5 h-0.5 bg-ink block transition-all duration-300 rounded-full"></span>
+      <span id="bar3" class="w-3 h-0.5 bg-ink block transition-all duration-300 rounded-full"></span>
     </button>
   </div>
 </nav>
@@ -100,20 +101,41 @@
 </style>
 
 <script>
-  const navbar = document.getElementById("navbar")!;
-  const btn = document.getElementById("menu-btn")!;
+  const navbar  = document.getElementById("navbar")!;
+  const btn     = document.getElementById("menu-btn")!;
   const closeBtn = document.getElementById("close-btn")!;
-  const menu = document.getElementById("mobile-menu")!;
+  const menu    = document.getElementById("mobile-menu")!;
+  const bar1    = document.getElementById("bar1")!;
+  const bar2    = document.getElementById("bar2")!;
+  const bar3    = document.getElementById("bar3")!;
+
+  let isOpen = false;
+
+  function openMenu() {
+    isOpen = true;
+    menu.classList.remove("translate-x-full");
+    btn.setAttribute("aria-expanded", "true");
+    // Animate to ×
+    bar1.style.cssText = "transform: translateY(7px) rotate(45deg); width: 20px;";
+    bar2.style.cssText = "opacity: 0; transform: scaleX(0);";
+    bar3.style.cssText = "transform: translateY(-7px) rotate(-45deg); width: 20px;";
+  }
+
+  function closeMenu() {
+    isOpen = false;
+    menu.classList.add("translate-x-full");
+    btn.setAttribute("aria-expanded", "false");
+    // Animate back to burger
+    bar1.style.cssText = "";
+    bar2.style.cssText = "";
+    bar3.style.cssText = "";
+  }
+
+  btn.addEventListener("click", () => isOpen ? closeMenu() : openMenu());
+  closeBtn.addEventListener("click", closeMenu);
+  (window as any).closeMenu = closeMenu;
 
   window.addEventListener("scroll", () => {
     navbar.classList.toggle("scrolled", window.scrollY > 20);
   });
-
-  btn.addEventListener("click", () =>
-    menu.classList.remove("translate-x-full"),
-  );
-  closeBtn.addEventListener("click", () =>
-    menu.classList.add("translate-x-full"),
-  );
-  (window as any).closeMenu = () => menu.classList.add("translate-x-full");
 </script>
