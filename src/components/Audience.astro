@@ -1,0 +1,77 @@
+---
+const audiences = [
+  {
+    title: "Teachers",
+    eyebrow: "For Educators",
+    desc: "Abiva has been your partner since 1936. The app extends that partnership — giving you digital access to teacher's manuals, lesson guides, and professional development resources aligned with your curriculum.",
+    tags: ["Teacher's Manuals", "Lesson Guides", "PD Resources"],
+    bg: "bg-sky-pale",
+    border: "border-sky-brand/15",
+  },
+  {
+    title: "Students",
+    eyebrow: "For Learners",
+    desc: "From Ladders to Learning in Grade School to SRA Reading Lab and ALAB sa Filipino in High School — explore Abiva's full library of trusted titles through engaging, interactive lessons.",
+    tags: ["Interactive Lessons", "Progress Tracking", "Offline Access"],
+    bg: "bg-[#FFFBF0]",
+    border: "border-[#FFC107]/20",
+  },
+  {
+    title: "Parents",
+    eyebrow: "For Families",
+    desc: "Trust the publisher that has guided Filipino families for nearly nine decades. Stay connected to your child's education with real-time progress updates and milestone alerts.",
+    tags: ["Progress Updates", "Milestone Alerts", "Safe & Trusted"],
+    bg: "bg-[#FFF5F5]",
+    border: "border-[#F44336]/15",
+  },
+];
+---
+
+<section id="audience" class="bg-[#F8FAFC] px-6 md:px-16 py-24">
+  <div class="max-w-7xl mx-auto">
+    <!-- Section header -->
+    <div class="max-w-2xl mb-16">
+      <p
+        class="text-xs font-bold tracking-[0.15em] uppercase text-sky-brand mb-3"
+      >
+        Built For Everyone
+      </p>
+      <h2
+        class="font-display text-3xl md:text-4xl lg:text-[44px] font-black text-ink leading-tight mb-4"
+      >
+        The steady companion<br />of every Filipino learner.
+      </h2>
+      <p class="text-base md:text-lg text-muted leading-relaxed">
+        From Preschool to College — Abiva has always been there. Now the app
+        continues that mission.
+      </p>
+    </div>
+
+    <!-- Audience cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {
+        audiences.map(({ title, eyebrow, desc, tags, bg, border }, i) => (
+          <div
+            class={`fade-up ${bg} border ${border} rounded-2xl p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(13,27,42,0.07)]`}
+            style={`transition-delay:${i * 100}ms`}
+          >
+            <p class="text-[10px] font-bold tracking-[0.15em] uppercase text-muted mb-3">
+              {eyebrow}
+            </p>
+            <h3 class="font-display font-black text-2xl text-ink mb-3">
+              {title}
+            </h3>
+            <p class="text-sm text-muted leading-relaxed mb-6">{desc}</p>
+            <div class="flex flex-wrap gap-2">
+              {tags.map((tag) => (
+                <span class="text-[11px] font-semibold px-3 py-1.5 rounded-md bg-white text-ink border border-black/5">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

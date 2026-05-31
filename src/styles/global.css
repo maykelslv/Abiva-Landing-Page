@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fraunces:ital,wght@0,700;0,900;1,700&display=swap');
+
+@import "tailwindcss";
+
+/* ── Tailwind v4 theme extension ─────────────────────────── */
+@theme {
+  /* Colors */
+  --color-sky-brand:  #2196F3;
+  --color-sky-dark:   #1565C0;
+  --color-sky-pale:   #E3F2FD;
+  --color-ink:        #0D1B2A;
+  --color-muted:      #546E7A;
+  --color-sun:        #FFC107;
+  --color-surface:    #F8FAFC;
+  --color-sky-light:  #64B5F6;
+
+  /* Fonts */
+  --font-display: 'Fraunces', serif;
+  --font-sans:    'Nunito', sans-serif;
+
+  /* Animations */
+  --animate-drift:       drift 7s ease-in-out infinite alternate;
+  --animate-drift-2:     drift 9s ease-in-out infinite alternate-reverse;
+  --animate-drift-3:     drift 5s ease-in-out infinite alternate;
+  --animate-pulse2:      pulse2 2s ease-in-out infinite;
+  --animate-floatPhone:  floatPhone 4s ease-in-out infinite;
+
+  @keyframes drift {
+    from { transform: translateY(0)   translateX(0); }
+    to   { transform: translateY(-20px) translateX(12px); }
+  }
+  @keyframes pulse2 {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%       { opacity: 0.6; transform: scale(0.85); }
+  }
+  @keyframes floatPhone {
+    0%, 100% { transform: translateY(0)   rotate(-4deg); }
+    50%       { transform: translateY(-14px) rotate(-4deg); }
+  }
+}
+
+/* ── Base ────────────────────────────────────────────────── */
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font-sans); }
+}
+
+/* ── Utilities ───────────────────────────────────────────── */
+@layer utilities {
+  .fade-up {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1),
+                transform 0.7s cubic-bezier(0.16,1,0.3,1);
+  }
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #2196F3, #64B5F6);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s ease;
+  }
+  .feature-card:hover::before {
+    transform: scaleX(1);
+  }
+}

@@ -1,0 +1,119 @@
+---
+
+---
+
+<nav
+  id="navbar"
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+>
+  <div
+    class="max-w-7xl mx-auto flex items-center justify-between px-6 md:px-12 py-4"
+  >
+    <!-- Logo -->
+    <a href="/" class="flex items-center gap-3 group">
+      <img src="/abiva-logo.png" alt="Abiva Logo" class="h-10 w-auto" />
+    </a>
+
+    <!-- Desktop Links -->
+    <div class="hidden md:flex items-center gap-7">
+      <a
+        href="#features"
+        class="nav-link text-sm font-semibold text-muted hover:text-ink transition-colors"
+        >Features</a
+      >
+      <a
+        href="#audience"
+        class="nav-link text-sm font-semibold text-muted hover:text-ink transition-colors"
+        >Who It's For</a
+      >
+      <a
+        href="#testimonials"
+        class="nav-link text-sm font-semibold text-muted hover:text-ink transition-colors"
+        >Reviews</a
+      >
+      <a
+        href="#download"
+        class="inline-flex items-center gap-2 text-sm font-bold text-white bg-sky-brand hover:bg-sky-dark px-5 py-2.5 rounded-lg shadow-[0_2px_12px_rgba(33,150,243,0.3)] transition-all duration-200 hover:-translate-y-px"
+      >
+        Download App
+      </a>
+    </div>
+
+    <!-- Mobile burger -->
+    <button
+      id="menu-btn"
+      class="md:hidden flex flex-col gap-[5px] p-2"
+      aria-label="Open menu"
+    >
+      <span class="w-5 h-0.5 bg-ink block transition-all rounded-full"></span>
+      <span class="w-5 h-0.5 bg-ink block transition-all rounded-full"></span>
+      <span class="w-3 h-0.5 bg-ink block transition-all rounded-full"></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile drawer -->
+<div
+  id="mobile-menu"
+  class="fixed inset-0 z-40 bg-white/98 backdrop-blur-xl flex flex-col items-center justify-center gap-10 translate-x-full transition-transform duration-300 md:hidden"
+>
+  <button
+    id="close-btn"
+    class="absolute top-5 right-6 text-3xl text-muted hover:text-ink">×</button
+  >
+  <a
+    href="#features"
+    onclick="closeMenu()"
+    class="text-2xl font-bold text-ink hover:text-sky-brand transition-colors"
+    >Features</a
+  >
+  <a
+    href="#audience"
+    onclick="closeMenu()"
+    class="text-2xl font-bold text-ink hover:text-sky-brand transition-colors"
+    >Who It's For</a
+  >
+  <a
+    href="#testimonials"
+    onclick="closeMenu()"
+    class="text-2xl font-bold text-ink hover:text-sky-brand transition-colors"
+    >Reviews</a
+  >
+  <a
+    href="#download"
+    onclick="closeMenu()"
+    class="text-white bg-sky-brand px-10 py-3.5 rounded-lg text-lg font-bold shadow-[0_4px_16px_rgba(33,150,243,0.3)]"
+    >Download App</a
+  >
+</div>
+
+<style>
+  #navbar {
+    background: transparent;
+  }
+  #navbar.scrolled {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(33, 150, 243, 0.08);
+    box-shadow: 0 1px 20px rgba(13, 27, 42, 0.06);
+  }
+</style>
+
+<script>
+  const navbar = document.getElementById("navbar")!;
+  const btn = document.getElementById("menu-btn")!;
+  const closeBtn = document.getElementById("close-btn")!;
+  const menu = document.getElementById("mobile-menu")!;
+
+  window.addEventListener("scroll", () => {
+    navbar.classList.toggle("scrolled", window.scrollY > 20);
+  });
+
+  btn.addEventListener("click", () =>
+    menu.classList.remove("translate-x-full"),
+  );
+  closeBtn.addEventListener("click", () =>
+    menu.classList.add("translate-x-full"),
+  );
+  (window as any).closeMenu = () => menu.classList.add("translate-x-full");
+</script>

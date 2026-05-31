@@ -1,0 +1,35 @@
+---
+interface Props {
+  title?: string;
+}
+const { title = "Abiva App" } = Astro.props;
+
+import "../styles/global.css";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/abiva-logo.png" />
+    <meta name="generator" content={Astro.generator} />
+    <meta
+      name="description"
+      content="Abiva's new mobile app brings the Philippines' most trusted educational content straight to your pocket — anytime, anywhere."
+    />
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+
+<style>
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+    min-height: 100%;
+  }
+</style>

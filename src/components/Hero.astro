@@ -1,0 +1,187 @@
+---
+
+---
+
+<section
+  id="hero"
+  class="relative min-h-screen grid grid-cols-1 md:grid-cols-2 items-center gap-12 px-8 md:px-16 pt-32 pb-20
+         bg-gradient-to-br from-white via-sky-pale to-[#BBDEFB] overflow-hidden"
+>
+  <!-- Decorative blobs -->
+  <div
+    class="pointer-events-none absolute w-72 h-72 md:w-[400px] md:h-[400px] rounded-full bg-sky-brand/10 -top-20 right-[10%] animate-drift"
+  >
+  </div>
+  <div
+    class="pointer-events-none absolute w-44 h-44 rounded-full bg-sky-brand/08 bottom-10 left-4 animate-drift-2"
+  >
+  </div>
+  <div
+    class="pointer-events-none absolute w-20 h-20 rounded-full bg-sun/20 top-[35%] left-[44%] animate-drift-3"
+  >
+  </div>
+  <div
+    class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_70%_40%,rgba(33,150,243,0.12),transparent_65%)]"
+  >
+  </div>
+
+  <!-- TEXT -->
+  <div class="relative z-10 fade-up">
+    <div
+      class="inline-flex items-center gap-2 bg-sky-brand/10 border border-sky-brand/25 text-sky-dark text-xs font-extrabold tracking-widest uppercase px-4 py-1.5 rounded-full mb-6"
+    >
+      <span
+        class="w-2 h-2 rounded-full bg-sky-brand animate-pulse2 inline-block"
+      ></span>
+      Now Launching — Abiva App
+    </div>
+
+    <h1
+      class="font-display text-4xl md:text-5xl lg:text-[64px] font-black leading-[1.05] tracking-tight text-ink mb-5"
+    >
+      Quality Education<br />is our <em class="not-italic text-sky-brand"
+        >Mission.</em
+      >
+    </h1>
+
+    <p
+      class="text-base md:text-lg font-semibold text-muted leading-relaxed max-w-lg mb-8"
+    >
+      For nearly 9 decades, Abiva Publishing House has been the trusted
+      companion of Filipino educators and learners. Now, our mission fits in
+      your pocket.
+    </p>
+
+    <div class="flex flex-wrap gap-4 mb-10">
+      <a
+        href="#download"
+        class="inline-flex items-center gap-2 bg-sky-brand hover:bg-sky-dark text-white font-extrabold text-base px-8 py-4 rounded-full shadow-[0_6px_24px_rgba(33,150,243,0.38)] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_10px_30px_rgba(33,150,243,0.45)]"
+      >
+        <svg
+          class="w-6 h-6 text-white-800"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+          ></path>
+        </svg>
+        Get Early Access
+      </a>
+      <a
+        href="#features"
+        class="inline-flex items-center gap-2 border-2 border-sky-brand text-sky-brand hover:bg-sky-brand hover:text-white font-extrabold text-base px-8 py-4 rounded-full transition-all duration-200 hover:-translate-y-0.5"
+      >
+        See Features
+      </a>
+    </div>
+
+    <!-- Stats grounded in real identity -->
+    <div class="flex gap-8 flex-wrap">
+      <div>
+        <strong class="block font-display text-3xl font-black text-sky-brand"
+          >Since 1936</strong
+        >
+        <span class="text-xs font-bold text-muted uppercase tracking-widest"
+          >Trusted by Generations</span
+        >
+      </div>
+      <div>
+        <strong class="block font-display text-3xl font-black text-sky-brand"
+          >K–College</strong
+        >
+        <span class="text-xs font-bold text-muted uppercase tracking-widest"
+          >Full Learning Journey</span
+        >
+      </div>
+      <div>
+        <strong class="block font-display text-3xl font-black text-sky-brand"
+          >DepEd</strong
+        >
+        <span class="text-xs font-bold text-muted uppercase tracking-widest"
+          >Accredited Publisher</span
+        >
+      </div>
+    </div>
+  </div>
+
+  <!-- PHONE MOCK -->
+  <div
+    class="relative z-10 flex justify-center items-center fade-up [transition-delay:200ms]"
+  >
+    <div
+      class="w-[260px] md:w-[280px] h-[540px] md:h-[560px] bg-ink rounded-[40px] p-3.5 shadow-[0_40px_80px_rgba(13,27,42,0.25),0_0_0_1px_rgba(255,255,255,0.1)] animate-floatPhone"
+    >
+      <div
+        class="w-full h-full rounded-[28px] bg-gradient-to-b from-sky-pale via-white to-[#FFF9C4] flex flex-col items-center px-4 py-6 gap-3 overflow-hidden"
+      >
+        <div
+          class="w-16 h-16 rounded-2xl bg-white shadow-[0_4px_12px_rgba(33,150,243,0.2)] flex items-center justify-center overflow-hidden flex-shrink-0"
+        >
+          <img src="/abiva-logo.png" alt="Abiva" class="w-12 h-auto" />
+        </div>
+        <p class="font-display font-black text-xl text-sky-dark">Abiva App</p>
+        <p
+          class="text-[10px] font-bold text-muted tracking-wider uppercase -mt-2"
+        >
+          Your Learning Companion
+        </p>
+
+        {
+          [
+            {
+              icon: "📖",
+              label: "Ladders to Learning",
+              sub: "Grade 3 — Reading",
+              pct: 72,
+              color: "#2196F3",
+            },
+            {
+              icon: "🔬",
+              label: "Real-Life Science",
+              sub: "Grade 6 — Ecosystems",
+              pct: 55,
+              color: "#FFC107",
+            },
+            {
+              icon: "📝",
+              label: "ALAB sa Filipino",
+              sub: "Grade 8 — Pagsulat",
+              pct: 88,
+              color: "#F44336",
+            },
+          ].map(({ icon, label, sub, pct, color }) => (
+            <div class="w-full bg-white rounded-xl px-3 py-2.5 shadow-[0_2px_8px_rgba(33,150,243,0.1)] flex items-center gap-3 flex-shrink-0">
+              <span class="text-xl flex-shrink-0">{icon}</span>
+              <div class="flex-1 min-w-0">
+                <strong class="block text-[11px] font-extrabold text-ink truncate">
+                  {label}
+                </strong>
+                <span class="block text-[10px] font-semibold text-muted truncate">
+                  {sub}
+                </span>
+                <div class="mt-1.5 h-1 bg-gray-100 rounded-full overflow-hidden">
+                  <div
+                    class="h-full rounded-full"
+                    style={`width:${pct}%;background:${color}`}
+                  />
+                </div>
+              </div>
+            </div>
+          ))
+        }
+
+        <button
+          class="w-full mt-auto bg-sky-brand text-white font-extrabold text-sm py-3 rounded-xl flex-shrink-0"
+        >
+          Continue Learning →
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
